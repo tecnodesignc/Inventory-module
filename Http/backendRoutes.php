@@ -103,7 +103,41 @@ $router->group(['prefix' =>'/inventary'], function (Router $router) {
         'uses' => 'Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CController@destroy',
         'middleware' => 'can:inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.destroy'
     ]);
+    $router->bind('transation', function ($id) {
+        return app('Modules\Inventary\Repositories\TransationRepository')->find($id);
+    });
+    $router->get('transations', [
+        'as' => 'admin.inventary.transation.index',
+        'uses' => 'TransationController@index',
+        'middleware' => 'can:inventary.transations.index'
+    ]);
+    $router->get('transations/create', [
+        'as' => 'admin.inventary.transation.create',
+        'uses' => 'TransationController@create',
+        'middleware' => 'can:inventary.transations.create'
+    ]);
+    $router->post('transations', [
+        'as' => 'admin.inventary.transation.store',
+        'uses' => 'TransationController@store',
+        'middleware' => 'can:inventary.transations.create'
+    ]);
+    $router->get('transations/{transation}/edit', [
+        'as' => 'admin.inventary.transation.edit',
+        'uses' => 'TransationController@edit',
+        'middleware' => 'can:inventary.transations.edit'
+    ]);
+    $router->put('transations/{transation}', [
+        'as' => 'admin.inventary.transation.update',
+        'uses' => 'TransationController@update',
+        'middleware' => 'can:inventary.transations.edit'
+    ]);
+    $router->delete('transations/{transation}', [
+        'as' => 'admin.inventary.transation.destroy',
+        'uses' => 'TransationController@destroy',
+        'middleware' => 'can:inventary.transations.destroy'
+    ]);
 // append
+
 
 
 

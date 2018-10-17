@@ -13,13 +13,14 @@ return [
         'edit' => 'inventary::acounts.edit resource',
         'destroy' => 'inventary::acounts.destroy resource',
     ],
-    'inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs' => [
-        'index' => 'inventary::transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.list resource',
-        'create' => 'inventary::transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.create resource',
-        'edit' => 'inventary::transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.edit resource',
-        'destroy' => 'inventary::transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.destroy resource',
+    'inventary.transations' => [
+        'index' => 'inventary::transations.list resource',
+        'create' => 'inventary::transations.create resource',
+        'edit' => 'inventary::transations.edit resource',
+        'destroy' => 'inventary::transations.destroy resource',
     ],
 // append
+
 
 
 

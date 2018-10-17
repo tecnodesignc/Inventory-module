@@ -70,7 +70,17 @@ class RegisterInventarySidebar implements \Maatwebsite\Sidebar\SidebarExtender
                         $this->auth->hasAccess('inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.index')
                     );
                 });
+                $item->item(trans('inventary::transations.title.transations'), function (Item $item) {
+                    $item->icon('fa fa-copy');
+                    $item->weight(0);
+                    $item->append('admin.inventary.transation.create');
+                    $item->route('admin.inventary.transation.index');
+                    $item->authorize(
+                        $this->auth->hasAccess('inventary.transations.index')
+                    );
+                });
 // append
+
 
 
 

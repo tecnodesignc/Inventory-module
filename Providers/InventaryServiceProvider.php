@@ -31,8 +31,9 @@ class InventaryServiceProvider extends ServiceProvider
         $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
             $event->load('products', array_dot(trans('inventary::products')));
             $event->load('acounts', array_dot(trans('inventary::acounts')));
-            $event->load('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs', array_dot(trans('inventary::transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs')));
+            $event->load('transations', array_dot(trans('inventary::transations')));
             // append translations
+
 
 
 
@@ -83,18 +84,19 @@ class InventaryServiceProvider extends ServiceProvider
             }
         );
         $this->app->bind(
-            'Modules\Inventary\Repositories\Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CRepository',
+            'Modules\Inventary\Repositories\TransationRepository',
             function () {
-                $repository = new \Modules\Inventary\Repositories\Eloquent\EloquentTransaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CRepository(new \Modules\Inventary\Entities\Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C());
+                $repository = new \Modules\Inventary\Repositories\Eloquent\EloquentTransationRepository(new \Modules\Inventary\Entities\Transation());
 
                 if (! config('app.cache')) {
                     return $repository;
                 }
 
-                return new \Modules\Inventary\Repositories\Cache\CacheTransaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CDecorator($repository);
+                return new \Modules\Inventary\Repositories\Cache\CacheTransationDecorator($repository);
             }
         );
 // add bindings
+
 
 
 
