@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class ProductTranslation extends Model
 {
     public $timestamps = false;
-    protected $fillable = [];
+    protected $fillable = ['title','description','summary'];
     protected $table = 'inventary__product_translations';
 }
