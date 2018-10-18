@@ -19,6 +19,7 @@ return [
         'edit' => 'inventary::transations.edit resource',
         'destroy' => 'inventary::transations.destroy resource',
     ],
+
 // append
 
 
