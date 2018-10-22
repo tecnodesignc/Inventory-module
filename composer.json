@@ -1,6 +1,6 @@
 {
     "name": "tecnodesign/inventory",
-    "description": "",
+    "description": "module by Agrocont",
     "type": "asgard-module",
     "license": "MIT",
     "require": {
