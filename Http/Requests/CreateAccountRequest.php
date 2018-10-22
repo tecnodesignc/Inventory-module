@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Inventary\Http\Requests;
+namespace Modules\Inventory\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
@@ -24,7 +24,7 @@ class CreateAccountRequest extends BaseFormRequest
     public function messages()
     {
         return [
-            'title:min'=>trans('inventary::accounts.menssage.the min lether is 2')
+            'title:min'=>trans('inventory::accounts.menssage.the min lether is 2')
         ];
     }
 

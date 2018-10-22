@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Inventary\Repositories\Eloquent;
+namespace Modules\Inventory\Repositories\Eloquent;
 
-use Modules\Inventary\Repositories\AccountRepository;
+use Modules\Inventory\Repositories\AccountRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
 class EloquentAccountRepository extends EloquentBaseRepository implements AccountRepository

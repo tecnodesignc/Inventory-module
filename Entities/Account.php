@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Inventary\Entities;
+namespace Modules\Inventory\Entities;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +9,7 @@ class Account extends Model
 {
     use Translatable;
 
-    protected $table = 'inventary__accounts';
+    protected $table = 'inventory__accounts';
     public $translatedAttributes = ['title'];
     protected $fillable = ['id','code','title','type','parent_id'];
     protected $fakeColumns = ['options'];
@@ -32,7 +32,7 @@ class Account extends Model
     {
         $driver = config('asgard.user.config.driver');
 
-        return $this->belongsToMany("Modules\\User\\Entities\\{$driver}\\User",'inventary_user_account')->withTimestamps();
+        return $this->belongsToMany("Modules\\User\\Entities\\{$driver}\\User",'inventory_user_account')->withTimestamps();
     }
     /**
      * @param $value
@@ -71,7 +71,7 @@ class Account extends Model
     public function __call($method, $parameters)
     {
         #i: Convert array to dot notation
-        $config = implode('.', ['asgard.inventary.config.account.relations', $method]);
+        $config = implode('.', ['asgard.inventory.config.account.relations', $method]);
         #i: Relation method resolver
         if (config()->has($config)) {
             $function = config()->get($config);

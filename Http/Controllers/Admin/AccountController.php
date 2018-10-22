@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Inventary\Http\Controllers\Admin;
+namespace Modules\Inventory\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\Inventary\Entities\Account;
-use Modules\Inventary\Http\Requests\CreateAccountRequest;
-use Modules\Inventary\Http\Requests\UpdateAccountRequest;
-use Modules\Inventary\Repositories\AccountRepository;
+use Modules\Inventory\Entities\Account;
+use Modules\Inventory\Http\Requests\CreateAccountRequest;
+use Modules\Inventory\Http\Requests\UpdateAccountRequest;
+use Modules\Inventory\Repositories\AccountRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
 class AccountController extends AdminBaseController
@@ -33,7 +33,7 @@ class AccountController extends AdminBaseController
     {
         //$accounts = $this->account->all();
 
-        return view('inventary::admin.accounts.index', compact(''));
+        return view('inventory::admin.accounts.index', compact(''));
     }
 
     /**
@@ -43,7 +43,7 @@ class AccountController extends AdminBaseController
      */
     public function create()
     {
-        return view('inventary::admin.accounts.create');
+        return view('inventory::admin.accounts.create');
     }
 
     /**
@@ -56,8 +56,8 @@ class AccountController extends AdminBaseController
     {
         $this->account->create($request->all());
 
-        return redirect()->route('admin.inventary.account.index')
-            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('inventary::accounts.title.accounts')]));
+        return redirect()->route('admin.inventory.account.index')
+            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('inventory::accounts.title.accounts')]));
     }
 
     /**
@@ -68,7 +68,7 @@ class AccountController extends AdminBaseController
      */
     public function edit(Account $account)
     {
-        return view('inventary::admin.accounts.edit', compact('account'));
+        return view('inventory::admin.accounts.edit', compact('account'));
     }
 
     /**
@@ -82,8 +82,8 @@ class AccountController extends AdminBaseController
     {
         $this->account->update($account, $request->all());
 
-        return redirect()->route('admin.inventary.account.index')
-            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('inventary::accounts.title.accounts')]));
+        return redirect()->route('admin.inventory.account.index')
+            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('inventory::accounts.title.accounts')]));
     }
 
     /**
@@ -96,7 +96,7 @@ class AccountController extends AdminBaseController
     {
         $this->account->destroy($account);
 
-        return redirect()->route('admin.inventary.account.index')
-            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('inventary::accounts.title.accounts')]));
+        return redirect()->route('admin.inventory.account.index')
+            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('inventory::accounts.title.accounts')]));
     }
 }

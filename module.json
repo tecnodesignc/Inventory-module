@@ -1,14 +1,14 @@
 {
-    "name": "Inventary",
-    "alias": "inventary",
+    "name": "Inventory",
+    "alias": "inventory",
     "description": "",
     "keywords": [],
     "version": "1.0.0",
 	"active": 1,
     "order": 1,
     "providers": [
-        "Modules\\Inventary\\Providers\\InventaryServiceProvider",
-        "Modules\\Inventary\\Providers\\RouteServiceProvider"
+        "Modules\\Inventory\\Providers\\InventoryServiceProvider",
+        "Modules\\Inventory\\Providers\\RouteServiceProvider"
     ],
     "aliases": {},
     "files": [

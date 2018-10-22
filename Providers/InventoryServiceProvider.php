@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Inventary\Providers;
+namespace Modules\Inventory\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Events\LoadingBackendTranslations;
-use Modules\Inventary\Events\Handlers\RegisterInventarySidebar;
+use Modules\Inventory\Events\Handlers\RegisterInventorySidebar;
 
-class InventaryServiceProvider extends ServiceProvider
+class InventoryServiceProvider extends ServiceProvider
 {
     use CanPublishConfiguration;
     /**
@@ -26,12 +26,12 @@ class InventaryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerBindings();
-        $this->app['events']->listen(BuildingSidebar::class, RegisterInventarySidebar::class);
+        $this->app['events']->listen(BuildingSidebar::class, RegisterInventorySidebar::class);
 
         $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
-            $event->load('products', array_dot(trans('inventary::products')));
-            $event->load('acounts', array_dot(trans('inventary::acounts')));
-            $event->load('transations', array_dot(trans('inventary::transations')));
+            $event->load('products', array_dot(trans('inventory::products')));
+            $event->load('accounts', array_dot(trans('inventory::accounts')));
+            $event->load('transactions', array_dot(trans('inventory::transactions')));
             // append translations
 
 
@@ -42,7 +42,7 @@ class InventaryServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->publishConfig('inventary', 'permissions');
+        $this->publishConfig('inventory', 'permissions');
 
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
@@ -60,39 +60,39 @@ class InventaryServiceProvider extends ServiceProvider
     private function registerBindings()
     {
         $this->app->bind(
-            'Modules\Inventary\Repositories\ProductRepository',
+            'Modules\Inventory\Repositories\ProductRepository',
             function () {
-                $repository = new \Modules\Inventary\Repositories\Eloquent\EloquentProductRepository(new \Modules\Inventary\Entities\Product());
+                $repository = new \Modules\Inventory\Repositories\Eloquent\EloquentProductRepository(new \Modules\Inventory\Entities\Product());
 
                 if (! config('app.cache')) {
                     return $repository;
                 }
 
-                return new \Modules\Inventary\Repositories\Cache\CacheProductDecorator($repository);
+                return new \Modules\Inventory\Repositories\Cache\CacheProductDecorator($repository);
             }
         );
         $this->app->bind(
-            'Modules\Inventary\Repositories\AcountRepository',
+            'Modules\Inventory\Repositories\AccountRepository',
             function () {
-                $repository = new \Modules\Inventary\Repositories\Eloquent\EloquentAcountRepository(new \Modules\Inventary\Entities\Acount());
+                $repository = new \Modules\Inventory\Repositories\Eloquent\EloquentAccountRepository(new \Modules\Inventory\Entities\Account());
 
                 if (! config('app.cache')) {
                     return $repository;
                 }
 
-                return new \Modules\Inventary\Repositories\Cache\CacheAcountDecorator($repository);
+                return new \Modules\Inventory\Repositories\Cache\CacheAccountDecorator($repository);
             }
         );
         $this->app->bind(
-            'Modules\Inventary\Repositories\TransationRepository',
+            'Modules\Inventory\Repositories\TransactionRepository',
             function () {
-                $repository = new \Modules\Inventary\Repositories\Eloquent\EloquentTransationRepository(new \Modules\Inventary\Entities\Transation());
+                $repository = new \Modules\Inventory\Repositories\Eloquent\EloquentTransactionRepository(new \Modules\Inventory\Entities\Transaction());
 
                 if (! config('app.cache')) {
                     return $repository;
                 }
 
-                return new \Modules\Inventary\Repositories\Cache\CacheTransationDecorator($repository);
+                return new \Modules\Inventory\Repositories\Cache\CacheTransactionDecorator($repository);
             }
         );
 // add bindings

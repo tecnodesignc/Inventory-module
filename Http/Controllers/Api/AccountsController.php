@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Inventary\Http\Controllers\Api;
+namespace Modules\Inventory\Http\Controllers\Api;
 
 
 class AccountsController

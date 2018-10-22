@@ -1,5 +1,5 @@
 {
-    "name": "tecnodesign/inventary",
+    "name": "tecnodesign/inventory",
     "description": "",
     "type": "asgard-module",
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\Inventary\\": ".",
+            "Modules\\Inventory\\": ".",
             "Modules\\": "Modules/"
         }
     },
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Inventary\\Providers\\InventaryServiceProvider"
+                "Modules\\Inventory\\Providers\\InventoryServiceProvider"
             ],
             "aliases": {
                 
@@ -38,7 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Inventary\\": ""
+            "Modules\\Inventory\\": ""
         }
     }
 }

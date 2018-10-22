@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Inventary\Entities;
+namespace Modules\Inventory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,5 +8,5 @@ class AccountTranslation extends Model
 {
     public $timestamps = false;
     protected $fillable = ['title'];
-    protected $table = 'inventary__account_translations';
+    protected $table = 'inventory__account_translations';
 }

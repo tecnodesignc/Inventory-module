@@ -3,35 +3,35 @@
 use Illuminate\Routing\Router;
 /** @var Router $router */
 
-$router->group(['prefix' =>'/inventary'], function (Router $router) {
+$router->group(['prefix' =>'/inventory'], function (Router $router) {
     $router->group(['prefix' =>'/accounts'], function (Router $router) {
         $router->bind('aaccount', function ($id) {
-            return app('Modules\Inventary\Repositories\AccountRepository')->find($id);
+            return app('Modules\Inventory\Repositories\AccountRepository')->find($id);
         });
         $router->get('/', [
-            'as' => 'admin.inventary.account.index',
+            'as' => 'admin.inventory.account.index',
             'uses' => 'AccountController@index',
 
         ]);
         $router->get('{aaccounts}', [
-            'as' => 'admin.inventary.account.show',
+            'as' => 'admin.inventory.account.show',
             'uses' => 'AccountController@show',
-           // 'middleware' => 'can:inventary.accounts.create'
+           // 'middleware' => 'can:inventory.accounts.create'
         ]);
         $router->post('/', [
-            'as' => 'admin.inventary.account.store',
+            'as' => 'admin.inventory.account.store',
             'uses' => 'AccountController@store',
-           // 'middleware' => 'can:inventary.accounts.edit'
+           // 'middleware' => 'can:inventory.accounts.edit'
         ]);
         $router->put('{aaccounts}', [
-            'as' => 'admin.inventary.account.update',
+            'as' => 'admin.inventory.account.update',
             'uses' => 'AccountController@update',
             'middleware' => 'auth:api'
         ]);
         $router->delete('{aaccounts}', [
-            'as' => 'admin.inventary.account.destroy',
+            'as' => 'admin.inventory.account.destroy',
             'uses' => 'AccountController@delete',
-            //'middleware' => 'can:inventary.accounts.destroy'
+            //'middleware' => 'can:inventory.accounts.destroy'
         ]);
     });
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Inventary\Repositories\Cache;
+namespace Modules\Inventory\Repositories\Cache;
 
-use Modules\Inventary\Repositories\AccountRepository;
+use Modules\Inventory\Repositories\AccountRepository;
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 
 class CacheAccountDecorator extends BaseCacheDecorator implements AccountRepository
@@ -10,7 +10,7 @@ class CacheAccountDecorator extends BaseCacheDecorator implements AccountReposit
     public function __construct(AccountRepository $account)
     {
         parent::__construct();
-        $this->entityName = 'inventary.accounts';
+        $this->entityName = 'inventory.accounts';
         $this->repository = $account;
     }
 }

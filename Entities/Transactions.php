@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\Inventary\Entities;
+namespace Modules\Inventory\Entities;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Transation extends Model
+class Transaction extends Model
 {
     use Translatable;
 
-    protected $table = 'inventary__transations';
+    protected $table = 'inventory__transactions';
     public $translatedAttributes = [];
     protected $fillable = [];
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Inventary\Repositories;
+namespace Modules\Inventory\Repositories;
 
 use Modules\Core\Repositories\BaseRepository;
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInventaryAccountsTable extends Migration
+class CreateInventoryTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,9 @@ class CreateInventaryAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventary__accounts', function (Blueprint $table) {
+        Schema::create('inventory__transactions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('code');
-            $table->integer('type');
-            $table->integer('parent_id');
-
             // Your fields
             $table->timestamps();
         });
@@ -31,6 +27,6 @@ class CreateInventaryAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventary__accounts');
+        Schema::dropIfExists('inventory__transactions');
     }
 }

@@ -2,11 +2,11 @@
 
 @section('content-header')
     <h1>
-        {{ trans('inventary::transations.title.transations') }}
+        {{ trans('inventory::transactions.title.transactions') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-        <li class="active">{{ trans('inventary::transations.title.transations') }}</li>
+        <li class="active">{{ trans('inventory::transactions.title.transactions') }}</li>
     </ol>
 @stop
 
@@ -15,8 +15,8 @@
         <div class="col-xs-12">
             <div class="row">
                 <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                    <a href="{{ route('admin.inventary.transation.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
-                        <i class="fa fa-pencil"></i> {{ trans('inventary::transations.button.create transation') }}
+                    <a href="{{ route('admin.inventory.transaction.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
+                        <i class="fa fa-pencil"></i> {{ trans('inventory::transactions.button.create transaction') }}
                     </a>
                 </div>
             </div>
@@ -34,18 +34,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <?php if (isset($transations)): ?>
-                            <?php foreach ($transations as $transation): ?>
+                            <?php if (isset($transactions)): ?>
+                            <?php foreach ($transactions as $transaction): ?>
                             <tr>
                                 <td>
-                                    <a href="{{ route('admin.inventary.transation.edit', [$transation->id]) }}">
-                                        {{ $transation->created_at }}
+                                    <a href="{{ route('admin.inventory.transaction.edit', [$transaction->id]) }}">
+                                        {{ $transaction->created_at }}
                                     </a>
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ route('admin.inventary.transation.edit', [$transation->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
-                                        <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#modal-delete-confirmation" data-action-target="{{ route('admin.inventary.transation.destroy', [$transation->id]) }}"><i class="fa fa-trash"></i></button>
+                                        <a href="{{ route('admin.inventory.transaction.edit', [$transaction->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
+                                        <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#modal-delete-confirmation" data-action-target="{{ route('admin.inventory.transaction.destroy', [$transaction->id]) }}"><i class="fa fa-trash"></i></button>
                                     </div>
                                 </td>
                             </tr>
@@ -75,7 +75,7 @@
 @section('shortcuts')
     <dl class="dl-horizontal">
         <dt><code>c</code></dt>
-        <dd>{{ trans('inventary::transations.title.create transation') }}</dd>
+        <dd>{{ trans('inventory::transactions.title.create transaction') }}</dd>
     </dl>
 @stop
 
@@ -84,7 +84,7 @@
         $( document ).ready(function() {
             $(document).keypressAction({
                 actions: [
-                    { key: 'c', route: "<?= route('admin.inventary.transation.create') ?>" }
+                    { key: 'c', route: "<?= route('admin.inventory.transaction.create') ?>" }
                 ]
             });
         });

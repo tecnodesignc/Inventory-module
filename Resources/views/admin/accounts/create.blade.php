@@ -2,17 +2,17 @@
 
 @section('content-header')
     <h1>
-        {{ trans('inventary::accounts.title.create account') }}
+        {{ trans('inventory::accounts.title.create account') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-        <li><a href="{{ route('admin.inventary.account.index') }}">{{ trans('inventary::accounts.title.accounts') }}</a></li>
-        <li class="active">{{ trans('inventary::accounts.title.create account') }}</li>
+        <li><a href="{{ route('admin.inventory.account.index') }}">{{ trans('inventory::accounts.title.accounts') }}</a></li>
+        <li class="active">{{ trans('inventory::accounts.title.create account') }}</li>
     </ol>
 @stop
 
 @section('content')
-    {!! Form::open(['route' => ['admin.inventary.account.store'], 'method' => 'post']) !!}
+    {!! Form::open(['route' => ['admin.inventory.account.store'], 'method' => 'post']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="nav-tabs-custom">
@@ -22,13 +22,13 @@
                     @foreach (LaravelLocalization::getSupportedLocales() as $locale => $language)
                         <?php $i++; ?>
                         <div class="tab-pane {{ locale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
-                            @include('inventary::admin.accounts.partials.create-fields', ['lang' => $locale])
+                            @include('inventory::admin.accounts.partials.create-fields', ['lang' => $locale])
                         </div>
                     @endforeach
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.create') }}</button>
-                        <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.inventary.account.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
+                        <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.inventory.account.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                     </div>
                 </div>
             </div> {{-- end nav-tabs-custom --}}
@@ -52,7 +52,7 @@
         $( document ).ready(function() {
             $(document).keypressAction({
                 actions: [
-                    { key: 'b', route: "<?= route('admin.inventary.account.index') ?>" }
+                    { key: 'b', route: "<?= route('admin.inventory.account.index') ?>" }
                 ]
             });
         });

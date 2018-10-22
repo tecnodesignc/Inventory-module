@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Inventary\Http\Requests;
+namespace Modules\Inventory\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdateAcountRequest extends BaseFormRequest
+class UpdateAccountRequest extends BaseFormRequest
 {
     public function rules()
     {

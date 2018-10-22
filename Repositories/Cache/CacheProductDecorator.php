@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Inventary\Repositories\Cache;
+namespace Modules\Inventory\Repositories\Cache;
 
-use Modules\Inventary\Repositories\ProductRepository;
+use Modules\Inventory\Repositories\ProductRepository;
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 
 class CacheProductDecorator extends BaseCacheDecorator implements ProductRepository
@@ -10,7 +10,7 @@ class CacheProductDecorator extends BaseCacheDecorator implements ProductReposit
     public function __construct(ProductRepository $product)
     {
         parent::__construct();
-        $this->entityName = 'inventary.products';
+        $this->entityName = 'inventory.products';
         $this->repository = $product;
     }
 }

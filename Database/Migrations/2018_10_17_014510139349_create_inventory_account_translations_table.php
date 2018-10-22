@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInventaryAccountTranslationsTable extends Migration
+class CreateInventoryAccountTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateInventaryAccountTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventary__account_translations', function (Blueprint $table) {
+        Schema::create('inventory__account_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title');
@@ -21,7 +21,7 @@ class CreateInventaryAccountTranslationsTable extends Migration
             $table->integer('account_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['account_id', 'locale']);
-            $table->foreign('account_id')->references('id')->on('inventary__accounts')->onDelete('cascade');
+            $table->foreign('account_id')->references('id')->on('inventory__accounts')->onDelete('cascade');
         });
     }
 
@@ -32,9 +32,9 @@ class CreateInventaryAccountTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('inventary__account_translations', function (Blueprint $table) {
+        Schema::table('inventory__account_translations', function (Blueprint $table) {
             $table->dropForeign(['account_id']);
         });
-        Schema::dropIfExists('inventary__account_translations');
+        Schema::dropIfExists('inventory__account_translations');
     }
 }
