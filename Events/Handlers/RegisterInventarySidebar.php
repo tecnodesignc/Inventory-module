@@ -52,13 +52,13 @@ class RegisterInventarySidebar implements \Maatwebsite\Sidebar\SidebarExtender
                         $this->auth->hasAccess('inventary.products.index')
                     );
                 });
-                $item->item(trans('inventary::acounts.title.acounts'), function (Item $item) {
+                $item->item(trans('inventary::accounts.title.accounts'), function (Item $item) {
                     $item->icon('fa fa-copy');
                     $item->weight(0);
-                    $item->append('admin.inventary.acount.create');
-                    $item->route('admin.inventary.acount.index');
+                    $item->append('admin.inventary.account.create');
+                    $item->route('admin.inventary.account.index');
                     $item->authorize(
-                        $this->auth->hasAccess('inventary.acounts.index')
+                        $this->auth->hasAccess('inventary.accounts.index')
                     );
                 });
                 $item->item(trans('inventary::transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.title.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs'), function (Item $item) {

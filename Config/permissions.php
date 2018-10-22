@@ -7,11 +7,11 @@ return [
         'edit' => 'inventary::products.edit resource',
         'destroy' => 'inventary::products.destroy resource',
     ],
-    'inventary.acounts' => [
-        'index' => 'inventary::acounts.list resource',
-        'create' => 'inventary::acounts.create resource',
-        'edit' => 'inventary::acounts.edit resource',
-        'destroy' => 'inventary::acounts.destroy resource',
+    'inventary.accounts' => [
+        'index' => 'inventary::accounts.list resource',
+        'create' => 'inventary::accounts.create resource',
+        'edit' => 'inventary::accounts.edit resource',
+        'destroy' => 'inventary::accounts.destroy resource',
     ],
     'inventary.transations' => [
         'index' => 'inventary::transations.list resource',
