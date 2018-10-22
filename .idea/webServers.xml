@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="b8150695-3340-4bfb-9ab3-a6b31e21bcc8" name="sicomol.com" url="http://sicomol.com">
+      <webServer id="5d310861-352b-47f5-8ca8-3f6bb1739b9d" name="sicomol.com" url="http://sicomol.com">
         <fileTransfer host="sicomol.com" port="21">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" accurateTimestamps="NEVER" />
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
           </advancedOptions>
           <option name="port" value="21" />
         </fileTransfer>

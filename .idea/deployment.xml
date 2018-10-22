@@ -5,7 +5,7 @@
       <paths name="sicomol.com">
         <serverdata>
           <mappings>
-            <mapping deploy="/proyect.sicomol.com/ecms/Modules/Inventary" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/proyect.sicomol.com/ecms/Modules/Inventory" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
