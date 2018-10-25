@@ -10,3 +10,16 @@ class ProductTranslation extends Model
     protected $fillable = ['title','description','summary'];
     protected $table = 'inventary__product_translations';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

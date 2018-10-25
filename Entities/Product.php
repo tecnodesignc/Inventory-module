@@ -15,7 +15,7 @@ class Product extends Model
 
     protected $table = 'inventary__products';
     public $translatedAttributes = ['title','description','summary'];
-    protected $fillable = ['title','description','summary','status','user_id','category_id','sku','quantity','stock','manufacturer_id','price','weight','lenght','width','height'];
+    protected $fillable = ['title','description','summary','status','user_id','category_id','sku','quantity','stock','manufacturer_id','price','weight','lenght','width','height','date_available','expiration_date'];
     protected $fakeColumns = ['options'];
 
     protected $casts = [
