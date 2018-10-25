@@ -4,7 +4,7 @@ namespace Modules\Inventory\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdateProductRequest extends BaseFormRequest
+class UpdateTransactionRequest extends BaseFormRequest
 {
     public function rules()
     {

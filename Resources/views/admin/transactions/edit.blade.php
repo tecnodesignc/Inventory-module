@@ -2,17 +2,17 @@
 
 @section('content-header')
     <h1>
-        {{ trans('inventory::products.title.create product') }}
+        {{ trans('inventory::transactions.title.edit transaction') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-        <li><a href="{{ route('admin.inventory.product.index') }}">{{ trans('inventory::products.title.products') }}</a></li>
-        <li class="active">{{ trans('inventory::products.title.create product') }}</li>
+        <li><a href="{{ route('admin.inventory.transaction.index') }}">{{ trans('inventory::transactions.title.transactions') }}</a></li>
+        <li class="active">{{ trans('inventory::transactions.title.edit transaction') }}</li>
     </ol>
 @stop
 
 @section('content')
-    {!! Form::open(['route' => ['admin.inventory.product.store'], 'method' => 'post']) !!}
+    {!! Form::open(['route' => ['admin.inventory.transaction.update', $transaction->id], 'method' => 'put']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="nav-tabs-custom">
@@ -22,13 +22,13 @@
                     @foreach (LaravelLocalization::getSupportedLocales() as $locale => $language)
                         <?php $i++; ?>
                         <div class="tab-pane {{ locale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
-                            @include('inventory::admin.products.partials.create-fields', ['lang' => $locale])
+                            @include('inventory::admin.transactions.partials.edit-fields', ['lang' => $locale])
                         </div>
                     @endforeach
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.create') }}</button>
-                        <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.inventory.product.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
+                        <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.update') }}</button>
+                        <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.inventory.transaction.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                     </div>
                 </div>
             </div> {{-- end nav-tabs-custom --}}
@@ -52,7 +52,7 @@
         $( document ).ready(function() {
             $(document).keypressAction({
                 actions: [
-                    { key: 'b', route: "<?= route('admin.inventory.product.index') ?>" }
+                    { key: 'b', route: "<?= route('admin.inventory.transaction.index') ?>" }
                 ]
             });
         });

@@ -4,7 +4,7 @@ namespace Modules\Inventory\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdateProductRequest extends BaseFormRequest
+class CreateAccountRequest extends BaseFormRequest
 {
     public function rules()
     {
@@ -13,7 +13,7 @@ class UpdateProductRequest extends BaseFormRequest
 
     public function translationRules()
     {
-        return [];
+        return ['title'=>'min:2,requeride'];
     }
 
     public function authorize()
@@ -23,7 +23,9 @@ class UpdateProductRequest extends BaseFormRequest
 
     public function messages()
     {
-        return [];
+        return [
+            'title:min'=>trans('inventory::accounts.menssage.the min lether is 2')
+        ];
     }
 
     public function translationMessages()

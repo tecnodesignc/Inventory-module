@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Inventary\Http\Controllers\Admin;
+namespace Modules\Inventory\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\Inventary\Entities\Product;
-use Modules\Inventary\Http\Requests\CreateProductRequest;
-use Modules\Inventary\Http\Requests\UpdateProductRequest;
-use Modules\Inventary\Repositories\ProductRepository;
+use Modules\Inventory\Entities\Product;
+use Modules\Inventory\Http\Requests\CreateProductRequest;
+use Modules\Inventory\Http\Requests\UpdateProductRequest;
+use Modules\Inventory\Repositories\ProductRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
 class ProductController extends AdminBaseController
@@ -33,7 +33,7 @@ class ProductController extends AdminBaseController
     {
         //$products = $this->product->all();
 
-        return view('inventary::admin.products.index', compact(''));
+        return view('inventory::admin.products.index', compact(''));
     }
 
     /**
@@ -43,7 +43,7 @@ class ProductController extends AdminBaseController
      */
     public function create()
     {
-        return view('inventary::admin.products.create');
+        return view('inventory::admin.products.create');
     }
 
     /**
@@ -56,8 +56,8 @@ class ProductController extends AdminBaseController
     {
         $this->product->create($request->all());
 
-        return redirect()->route('admin.inventary.product.index')
-            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('inventary::products.title.products')]));
+        return redirect()->route('admin.inventory.product.index')
+            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('inventory::products.title.products')]));
     }
 
     /**
@@ -68,7 +68,7 @@ class ProductController extends AdminBaseController
      */
     public function edit(Product $product)
     {
-        return view('inventary::admin.products.edit', compact('product'));
+        return view('inventory::admin.products.edit', compact('product'));
     }
 
     /**
@@ -82,8 +82,8 @@ class ProductController extends AdminBaseController
     {
         $this->product->update($product, $request->all());
 
-        return redirect()->route('admin.inventary.product.index')
-            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('inventary::products.title.products')]));
+        return redirect()->route('admin.inventory.product.index')
+            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('inventory::products.title.products')]));
     }
 
     /**
@@ -96,7 +96,7 @@ class ProductController extends AdminBaseController
     {
         $this->product->destroy($product);
 
-        return redirect()->route('admin.inventary.product.index')
-            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('inventary::products.title.products')]));
+        return redirect()->route('admin.inventory.product.index')
+            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('inventory::products.title.products')]));
     }
 }

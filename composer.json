@@ -1,6 +1,6 @@
 {
-    "name": "tecnodesign/inventary",
-    "description": "",
+    "name": "tecnodesign/inventory",
+    "description": "module by Agrocont",
     "type": "asgard-module",
     "license": "MIT",
     "require": {
@@ -14,7 +14,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\Inventary\\": ".",
+            "Modules\\Inventory\\": ".",
             "Modules\\": "Modules/"
         }
     },
@@ -22,14 +22,14 @@
     "prefer-stable": true,
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Juana Bravo",
+            "email": "juana@tecnodesign.com.co"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Inventary\\Providers\\InventaryServiceProvider"
+                "Modules\\Inventory\\Providers\\InventoryServiceProvider"
             ],
             "aliases": {
                 
@@ -38,7 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Inventary\\": ""
+            "Modules\\Inventory\\": ""
         }
     }
 }

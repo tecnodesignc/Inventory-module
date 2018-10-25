@@ -1,23 +1,23 @@
 <?php
 
 return [
-    'inventary.products' => [
-        'index' => 'inventary::products.list resource',
-        'create' => 'inventary::products.create resource',
-        'edit' => 'inventary::products.edit resource',
-        'destroy' => 'inventary::products.destroy resource',
+    'inventory.products' => [
+        'index' => 'inventory::products.list resource',
+        'create' => 'inventory::products.create resource',
+        'edit' => 'inventory::products.edit resource',
+        'destroy' => 'inventory::products.destroy resource',
     ],
-    'inventary.acounts' => [
-        'index' => 'inventary::acounts.list resource',
-        'create' => 'inventary::acounts.create resource',
-        'edit' => 'inventary::acounts.edit resource',
-        'destroy' => 'inventary::acounts.destroy resource',
+    'inventory.accounts' => [
+        'index' => 'inventory::accounts.list resource',
+        'create' => 'inventory::accounts.create resource',
+        'edit' => 'inventory::accounts.edit resource',
+        'destroy' => 'inventory::accounts.destroy resource',
     ],
-    'inventary.transations' => [
-        'index' => 'inventary::transations.list resource',
-        'create' => 'inventary::transations.create resource',
-        'edit' => 'inventary::transations.edit resource',
-        'destroy' => 'inventary::transations.destroy resource',
+    'inventory.transactions' => [
+        'index' => 'inventory::transactions.list resource',
+        'create' => 'inventory::transactions.create resource',
+        'edit' => 'inventory::transactions.edit resource',
+        'destroy' => 'inventory::transactions.destroy resource',
     ],
 
 // append

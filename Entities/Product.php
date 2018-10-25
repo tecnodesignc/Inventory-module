@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Inventary\Entities;
+namespace Modules\Inventory\Entities;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +13,7 @@ class Product extends Model
     use Translatable,PresentableTrait, NamespacedEntity;
 
 
-    protected $table = 'inventary__products';
+    protected $table = 'inventory__products';
     public $translatedAttributes = ['title','description','summary'];
     protected $fillable = ['title','description','summary','status','user_id','category_id','sku','quantity','stock','manufacturer_id','price','weight','lenght','width','height','date_available','expiration_date'];
     protected $fakeColumns = ['options'];
@@ -27,7 +27,7 @@ class Product extends Model
     {
         $driver = config('asgard.user.config.driver');
 
-        return $this->belongsToMany("Modules\\User\\Entities\\{$driver}\\User",'inventary__user_product')->withTimestamps();
+        return $this->belongsToMany("Modules\\User\\Entities\\{$driver}\\User",'inventory__user_product')->withTimestamps();
     }
 
     public function getOptionsAttribute($value) {

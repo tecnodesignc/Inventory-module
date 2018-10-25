@@ -3,138 +3,105 @@
 use Illuminate\Routing\Router;
 /** @var Router $router */
 
-$router->group(['prefix' =>'/inventary'], function (Router $router) {
+$router->group(['prefix' =>'/inventory'], function (Router $router) {
     $router->bind('product', function ($id) {
-        return app('Modules\Inventary\Repositories\ProductRepository')->find($id);
+        return app('Modules\Inventory\Repositories\ProductRepository')->find($id);
     });
     $router->get('products', [
-        'as' => 'admin.inventary.product.index',
+        'as' => 'admin.inventory.product.index',
         'uses' => 'ProductController@index',
-        'middleware' => 'can:inventary.products.index'
+        'middleware' => 'can:inventory.products.index'
     ]);
     $router->get('products/create', [
-        'as' => 'admin.inventary.product.create',
+        'as' => 'admin.inventory.product.create',
         'uses' => 'ProductController@create',
-        'middleware' => 'can:inventary.products.create'
+        'middleware' => 'can:inventory.products.create'
     ]);
     $router->post('products', [
-        'as' => 'admin.inventary.product.store',
+        'as' => 'admin.inventory.product.store',
         'uses' => 'ProductController@store',
-        'middleware' => 'can:inventary.products.create'
+        'middleware' => 'can:inventory.products.create'
     ]);
     $router->get('products/{product}/edit', [
-        'as' => 'admin.inventary.product.edit',
+        'as' => 'admin.inventory.product.edit',
         'uses' => 'ProductController@edit',
-        'middleware' => 'can:inventary.products.edit'
+        'middleware' => 'can:inventory.products.edit'
     ]);
     $router->put('products/{product}', [
-        'as' => 'admin.inventary.product.update',
+        'as' => 'admin.inventory.product.update',
         'uses' => 'ProductController@update',
-        'middleware' => 'can:inventary.products.edit'
+        'middleware' => 'can:inventory.products.edit'
     ]);
     $router->delete('products/{product}', [
-        'as' => 'admin.inventary.product.destroy',
+        'as' => 'admin.inventory.product.destroy',
         'uses' => 'ProductController@destroy',
-        'middleware' => 'can:inventary.products.destroy'
+        'middleware' => 'can:inventory.products.destroy'
     ]);
-    $router->bind('acount', function ($id) {
-        return app('Modules\Inventary\Repositories\AcountRepository')->find($id);
+    $router->bind('account', function ($id) {
+        return app('Modules\Inventory\Repositories\AccountRepository')->find($id);
     });
-    $router->get('acounts', [
-        'as' => 'admin.inventary.acount.index',
-        'uses' => 'AcountController@index',
-        'middleware' => 'can:inventary.acounts.index'
+    $router->get('accounts', [
+        'as' => 'admin.inventory.account.index',
+        'uses' => 'AccountController@index',
+        'middleware' => 'can:inventory.accounts.index'
     ]);
-    $router->get('acounts/create', [
-        'as' => 'admin.inventary.acount.create',
-        'uses' => 'AcountController@create',
-        'middleware' => 'can:inventary.acounts.create'
+    $router->get('accounts/create', [
+        'as' => 'admin.inventory.account.create',
+        'uses' => 'AccountController@create',
+        'middleware' => 'can:inventory.accounts.create'
     ]);
-    $router->post('acounts', [
-        'as' => 'admin.inventary.acount.store',
-        'uses' => 'AcountController@store',
-        'middleware' => 'can:inventary.acounts.create'
+    $router->post('accounts', [
+        'as' => 'admin.inventory.account.store',
+        'uses' => 'AccountController@store',
+        'middleware' => 'can:inventory.accounts.create'
     ]);
-    $router->get('acounts/{acount}/edit', [
-        'as' => 'admin.inventary.acount.edit',
-        'uses' => 'AcountController@edit',
-        'middleware' => 'can:inventary.acounts.edit'
+    $router->get('accounts/{account}/edit', [
+        'as' => 'admin.inventory.account.edit',
+        'uses' => 'AccountController@edit',
+        'middleware' => 'can:inventory.accounts.edit'
     ]);
-    $router->put('acounts/{acount}', [
-        'as' => 'admin.inventary.acount.update',
-        'uses' => 'AcountController@update',
-        'middleware' => 'can:inventary.acounts.edit'
+    $router->put('accounts/{account}', [
+        'as' => 'admin.inventory.account.update',
+        'uses' => 'AccountController@update',
+        'middleware' => 'can:inventory.accounts.edit'
     ]);
-    $router->delete('acounts/{acount}', [
-        'as' => 'admin.inventary.acount.destroy',
-        'uses' => 'AcountController@destroy',
-        'middleware' => 'can:inventary.acounts.destroy'
+    $router->delete('accounts/{account}', [
+        'as' => 'admin.inventory.account.destroy',
+        'uses' => 'AccountController@destroy',
+        'middleware' => 'can:inventory.accounts.destroy'
     ]);
-    $router->bind('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c', function ($id) {
-        return app('Modules\Inventary\Repositories\Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CRepository')->find($id);
+    $router->bind('transaction', function ($id) {
+        return app('Modules\Inventory\Repositories\TransactionRepository')->find($id);
     });
-    $router->get('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs', [
-        'as' => 'admin.inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c.index',
-        'uses' => 'Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CController@index',
-        'middleware' => 'can:inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.index'
+    $router->get('transactions', [
+        'as' => 'admin.inventory.transaction.index',
+        'uses' => 'TransactionController@index',
+        'middleware' => 'can:inventory.transactions.index'
     ]);
-    $router->get('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs/create', [
-        'as' => 'admin.inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c.create',
-        'uses' => 'Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CController@create',
-        'middleware' => 'can:inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.create'
+    $router->get('transactions/create', [
+        'as' => 'admin.inventory.transaction.create',
+        'uses' => 'TransactionController@create',
+        'middleware' => 'can:inventory.transactions.create'
     ]);
-    $router->post('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs', [
-        'as' => 'admin.inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c.store',
-        'uses' => 'Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CController@store',
-        'middleware' => 'can:inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.create'
+    $router->post('transactions', [
+        'as' => 'admin.inventory.transaction.store',
+        'uses' => 'TransactionController@store',
+        'middleware' => 'can:inventory.transactions.create'
     ]);
-    $router->get('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs/{transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c}/edit', [
-        'as' => 'admin.inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c.edit',
-        'uses' => 'Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CController@edit',
-        'middleware' => 'can:inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.edit'
+    $router->get('transactions/{transaction}/edit', [
+        'as' => 'admin.inventory.transaction.edit',
+        'uses' => 'TransactionController@edit',
+        'middleware' => 'can:inventory.transactions.edit'
     ]);
-    $router->put('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs/{transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c}', [
-        'as' => 'admin.inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c.update',
-        'uses' => 'Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CController@update',
-        'middleware' => 'can:inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.edit'
+    $router->put('transactions/{transaction}', [
+        'as' => 'admin.inventory.transaction.update',
+        'uses' => 'TransactionController@update',
+        'middleware' => 'can:inventory.transactions.edit'
     ]);
-    $router->delete('transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs/{transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c}', [
-        'as' => 'admin.inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c.destroy',
-        'uses' => 'Transaction[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[T[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CController@destroy',
-        'middleware' => 'can:inventary.transaction[d[d[d[d[d[d[d[d[d[d[d[d[d[c[c[t[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[c[cs.destroy'
-    ]);
-    $router->bind('transation', function ($id) {
-        return app('Modules\Inventary\Repositories\TransationRepository')->find($id);
-    });
-    $router->get('transations', [
-        'as' => 'admin.inventary.transation.index',
-        'uses' => 'TransationController@index',
-        'middleware' => 'can:inventary.transations.index'
-    ]);
-    $router->get('transations/create', [
-        'as' => 'admin.inventary.transation.create',
-        'uses' => 'TransationController@create',
-        'middleware' => 'can:inventary.transations.create'
-    ]);
-    $router->post('transations', [
-        'as' => 'admin.inventary.transation.store',
-        'uses' => 'TransationController@store',
-        'middleware' => 'can:inventary.transations.create'
-    ]);
-    $router->get('transations/{transation}/edit', [
-        'as' => 'admin.inventary.transation.edit',
-        'uses' => 'TransationController@edit',
-        'middleware' => 'can:inventary.transations.edit'
-    ]);
-    $router->put('transations/{transation}', [
-        'as' => 'admin.inventary.transation.update',
-        'uses' => 'TransationController@update',
-        'middleware' => 'can:inventary.transations.edit'
-    ]);
-    $router->delete('transations/{transation}', [
-        'as' => 'admin.inventary.transation.destroy',
-        'uses' => 'TransationController@destroy',
-        'middleware' => 'can:inventary.transations.destroy'
+    $router->delete('transactions/{transaction}', [
+        'as' => 'admin.inventory.transaction.destroy',
+        'uses' => 'TransactionController@destroy',
+        'middleware' => 'can:inventory.transactions.destroy'
     ]);
 // append
 
