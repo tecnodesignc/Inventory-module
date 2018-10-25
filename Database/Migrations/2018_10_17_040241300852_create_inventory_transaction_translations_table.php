@@ -16,6 +16,7 @@ class CreateInventoryTransactionTranslationsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             // Your translatable fields
+            $table->text('description');
 
             $table->integer('transaction_id')->unsigned();
             $table->string('locale')->index();
