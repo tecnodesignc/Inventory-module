@@ -31,9 +31,9 @@ class TransactionController extends AdminBaseController
      */
     public function index()
     {
-        //$transactions = $this->transaction->all();
+        $transactions = $this->transaction->all(20);
 
-        return view('inventory::admin.transactions.index', compact(''));
+        return view('inventory::admin.transactions.index', compact('transactions'));
     }
 
     /**
@@ -43,7 +43,8 @@ class TransactionController extends AdminBaseController
      */
     public function create()
     {
-        return view('inventory::admin.transactions.create');
+        $transactions = $this->transaction->paginate(20);
+        return view('inventory::admin.transactions.create',compact('transactions'));
     }
 
     /**
@@ -54,10 +55,19 @@ class TransactionController extends AdminBaseController
      */
     public function store(CreateTransactionRequest $request)
     {
-        $this->transaction->create($request->all());
+        try{
+            $this->transaction->create($request->all());
 
-        return redirect()->route('admin.inventory.transaction.index')
-            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('inventory::transactions.title.transactions')]));
+            return redirect()->route('admin.inventory.transaction.index')
+                ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('inventory::transactions.title.transactions')]));
+
+        }catch (\Exception $e){
+            \Log::error($e);
+            return redirect()->back()
+                ->withError(trans('core::core.messages.resource error', ['name' => trans('inventory::transactions.title.transactions')]))->withInput($request->all());
+
+        }
+
     }
 
     /**
@@ -68,7 +78,8 @@ class TransactionController extends AdminBaseController
      */
     public function edit(Transaction $transaction)
     {
-        return view('inventory::admin.transactions.edit', compact('transaction'));
+        $transactions = $this->transaction->paginate(20);
+        return view('inventory::admin.transactions.edit', compact('transaction','transactions'));
     }
 
     /**
@@ -80,10 +91,25 @@ class TransactionController extends AdminBaseController
      */
     public function update(Transaction $transaction, UpdateTransactionRequest $request)
     {
-        $this->transaction->update($transaction, $request->all());
+        try{
+            if(isset($request['options'])){
+                $options=(array)$request['options'];
+            }else{$options = array();}
+            $request['options'] = json_encode($options);
 
-        return redirect()->route('admin.inventory.transaction.index')
-            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('inventory::transactions.title.transactions')]));
+            $this->transaction->update($transaction, $request->all());
+
+            return redirect()->route('admin.inventory.transaction.index')
+                ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('inventory::transactions.title.transactions')]));
+
+        }catch (\Exception $e){
+            \Log::error($e);
+            return redirect()->back()
+                ->withError(trans('core::core.messages.resource error', ['name' => trans('inventory::transactions.title.transactions')]))->withInput($request->all());
+
+
+        }
+
     }
 
     /**
@@ -94,9 +120,18 @@ class TransactionController extends AdminBaseController
      */
     public function destroy(Transaction $transaction)
     {
-        $this->transaction->destroy($transaction);
+        try{
+            $this->transaction->destroy($transaction);
 
-        return redirect()->route('admin.inventory.transaction.index')
-            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('inventory::transactions.title.transactions')]));
+            return redirect()->route('admin.inventory.transaction.index')
+                ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('inventory::transactions.title.transactions')]));
+
+        }catch (\Exception $e){
+            \Log::error($e);
+            return redirect()->back()
+                ->withError(trans('core::core.messages.resource error', ['name' => trans('inventory::transactions.title.transactions')]));
+
+        }
+
     }
 }
